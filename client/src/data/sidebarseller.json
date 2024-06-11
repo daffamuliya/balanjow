@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Dashboard",
+    "path": "/seller",
+    "icon": "bi-person-fill"
+  },
+  {
+    "title": "Produk Saya",
+    "path": "/seller/product",
+    "icon": "bi bi-bag-dash-fill"
+  },
+  {
+    "title": "Pesanan Masuk",
+    "path": "/seller/pesanan",
+    "icon": "bi bi-cart-fill"
+  },
+
+  {
+    "title": "Banner",
+    "icon": "bi bi-envelope-check-fill",
+    "path": "/seller/daftar-banner"
+  }
+]

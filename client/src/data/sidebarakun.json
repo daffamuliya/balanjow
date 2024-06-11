@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Akun",
+    "path": "/user/akun"
+  },
+  {
+    "title": "Blog Saya",
+    "path": "/user/blog"
+  },
+  {
+    "title": "Pesanan Saya",
+    "path": "/user/pesanan"
+  },
+  {
+    "title": "Postingan Forum Saya",
+    "path": "/user/forum"
+  }
+]

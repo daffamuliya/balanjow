@@ -1,0 +1,66 @@
+###
+POST http://${url}/auth/login
+Content-Type: application/json
+
+{     
+    "email" : "tiara1239910wqwq@gmail.com",
+    "password" : "123"
+} 
+
+
+###
+GET http://${url}/blog/
+
+###
+GET http://${url}/blog/dashboard
+
+###
+GET http://${url}/blog/detail-2
+
+###
+
+GET http://${url}/blog/addBlog
+
+###
+POST http://${url}/blog/addBlog
+Content-Type: application/json
+
+{
+     "user_id": 1,
+     "kategori_id": 3,
+     "judul" : "menurunkan berat badan",
+     "konten": "cara menurunkan berat badan"
+} 
+
+###
+PUT http://${url}/blog/updateBlog/1
+Content-Type: application/json
+
+{
+     "user_id": 1,
+     "kategori_id": 3,
+     "judul" : "data mining",
+     "konten": "cara nambang data"
+} 
+
+###
+DELETE http://${url}/blog/deleteBlog/1
+
+###
+GET http://${url}/blog/comment/all
+
+###
+POST http://${url}/blog/addComment
+Content-Type: application/json
+
+{
+     "blog_id": 2,
+     "user_id": 1,
+     "komentar" : "sangat menarik"
+} 
+
+###
+DELETE http://${url}/blog/deleteComment/3
+
+###
+GET http://${url}/marketplace/p

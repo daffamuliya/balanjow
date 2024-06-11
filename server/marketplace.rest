@@ -1,0 +1,74 @@
+###
+GET http://${url}/marketplace/produksaya/dashboard
+
+###
+POST http://${url}/auth/login
+Content-Type: application/json
+
+{     
+    "email" : "daffamuliya15@gmail.com",
+    "password" : "123"
+} 
+
+###
+GET http://${url}/marketplace/cart/myCart
+
+###
+GET http://${url}/auth/me
+
+###
+POST http://${url}/marketplace/addProduk
+Content-Type: application/json
+
+{
+    "id_penjual": 1,
+    "id_kategori": 1,
+    "nama": "baju",
+    "deskripsi": "deskripsi",
+    "rate": 4,
+    "hargabefore": 20000,
+    "hargaafter": 15000
+} 
+
+###
+PUT http://${url}/marketplace/updateProduk/1
+Content-Type: application/json
+
+{
+    "id_penjual": 1,
+    "id_kategori": 1,
+    "nama": "celana",
+    "deskripsi": "celana jeans",
+    "rate": 4,
+    "hargabefore": 200000,
+    "hargaafter": 15000
+} 
+###
+DELETE http://${url}/marketplace/deleteProduk/2
+
+###
+GET http://${url}/marketplace/
+
+###
+GET http://${url}/marketplace/1/getCart
+
+###
+POST http://${url}/marketplace/1/cart/addCart
+Content-Type: application/json
+
+{
+    "id_penjual": 1,
+    "produk_id": 1,
+    "jumlah": 4,
+    "status": "gagal"
+} 
+
+
+###
+DELETE http://${url}/marketplace/deleteCart/1
+
+###
+GET http://${url}/marketplace/getMyOrder
+
+###
+GET http://${url}/marketplace/omzet/transaksi

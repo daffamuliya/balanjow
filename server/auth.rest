@@ -1,0 +1,47 @@
+POST http://${url}/auth/register
+Content-Type: application/json
+
+{
+    "name": "Admin Ganteng",
+    "username" : "admin ganteng",
+    "password" : "123",
+    "confPassword" : "123",
+    "email" : "admin@gmail.com",
+    "no_telp" : "082286541161"
+} 
+
+
+###
+POST http://${url}/auth/login
+Content-Type: application/json
+
+{     
+    "email" : "tiara1239910wqwq@gmail.com",
+    "password" : "123"
+} 
+
+###
+GET http://${url}/auth/me
+
+###
+DELETE http://${url}/auth/logout
+
+###
+PUT http://${url}/auth/updatePassword
+Content-Type: application/json
+
+{     
+    "oldPassword" : "123",
+    "newPassword" : "12",
+    "confNewPassword" : "12"
+} 
+
+###
+PUT http://${url}/auth/updateProfile
+Content-Type: application/json
+
+{     
+    "no_telp" : "123",
+    "alamat" : "seberang"
+    
+} 

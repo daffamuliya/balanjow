@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Dashboard",
+    "icon": "bi bi-speedometer",
+    "path": "/admin"
+  },
+  {
+    "title": "Kelola User",
+    "icon": "bi-person-fill",
+    "path": "/admin/user"
+  },
+  {
+    "title": "Kelola Blog",
+    "icon": "bi bi-substack",
+    "path": "/admin/blog"
+  },
+  {
+    "title": "Kelola Forum",
+    "icon": "bi bi-dribbble",
+    "path": "/admin/forum"
+  },
+  {
+    "title": "E-Commerce",
+    "icon": "bi bi-cart-fill",
+    "path": "/admin/ecommerce"
+  },
+  {
+    "title": "Banner",
+    "icon": "bi bi-envelope-check-fill",
+    "path": "/admin/banner"
+  }
+]

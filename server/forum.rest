@@ -1,0 +1,49 @@
+###
+POST http://${url}/auth/login
+Content-Type: application/json
+
+{     
+    "email" : "admin@gmail.com",
+    "password" : "123"
+} 
+
+### 
+GET http://${url}/forum/dashboard
+
+###
+PUT http://${url}/forum/updateForum/1
+Content-Type: application/json
+
+{
+     "user_id": 1,
+     "judul" : "data mining",
+     "konten": "cara nambang data"
+} 
+
+
+###
+DELETE http://${url}/forum/deleteForum/1
+
+###
+GET http://${url}/forum/comment/all
+
+###
+GET http://${url}/forum/comment/51
+
+###
+POST http://${url}/forum/addComment
+Content-Type: application/json
+
+{
+     "forum_id": 2,
+     "user_id": 1,
+     "komentar" : "sangat menarik 2"
+} 
+
+###
+DELETE http://${url}/forum/deleteComment/2
+
+
+###
+GET http://${url}/blog/
+   
