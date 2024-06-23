@@ -7,7 +7,6 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 dotenv.config();
-const multer = require('multer');
 const SequelizeStore = require('connect-session-sequelize');
 const db = require('../server/config/conn.js');
 
@@ -60,7 +59,6 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use('/auth', auth);
@@ -73,11 +71,7 @@ app.use('/kelola', kelola);
 //--------------------------------
 
 app.get('/', (req, res) => {
-  res.render('home');
-});
-
-app.use('/', (req, res) => {
-  res.render('eror404');
+  res.send('api balanjow');
 });
 
 // store.sync();

@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { getMe } from '../../../features/authSlice';
 
 const PesananSeller = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -32,7 +33,7 @@ const PesananSeller = () => {
 
   const getTransaksi = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/order/transaksi');
+      const response = await axios.get(`http://${url}/marketplace/order/transaksi`);
       setTransaksi(response.data.data);
     } catch (error) {
       console.error('Error fetching blogs:', error);

@@ -13,6 +13,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const KelolaBlog = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError, user } = useSelector((state) => state.auth);
@@ -35,7 +36,7 @@ const KelolaBlog = () => {
 
   const getBlogs = async () => {
     try {
-      const response = await axios.get('http://${url}/blog/dashboard');
+      const response = await axios.get(`http://${url}/blog/dashboard`);
       const formattedBlogs = response.data.items.map((item) => {
         const waktu = new Date(item.created_at);
         const options = {

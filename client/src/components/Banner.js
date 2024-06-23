@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const Banner = () => {
   const [banner, setBanner] = useState();
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     getBanner();

@@ -5,8 +5,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const { refreshToken } = require('../controllers/RefreshToken');
 
-router.set('view engine', 'ejs');
-
 router.use(
   session({
     secret: 'flashblog',
@@ -30,7 +28,5 @@ router.put('/updateProfile', controller.users.updateProfile);
 router.get('/me', controller.users.me);
 router.post('/login', controller.users.login);
 router.delete('/logout', controller.users.logout);
-router.get('/login', controller.users.tampillogin);
-router.get('/register', controller.users.tampilregister);
 
 module.exports = router;

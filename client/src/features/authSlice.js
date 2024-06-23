@@ -9,7 +9,7 @@ const initialState = {
   message: '',
 };
 
-const url = process.env.url;
+const url = process.env.REACT_APP_BASE_URL;
 
 export const LoginUser = createAsyncThunk('user/LoginUser', async (user, thunkAPI) => {
   try {

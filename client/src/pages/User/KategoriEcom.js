@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import { MDBContainer, MDBRow, MDBBtn, MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText } from 'mdb-react-ui-kit';
 
 const KategoriEcom = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const [marketplace, setMarketplace] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);

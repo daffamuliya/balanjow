@@ -9,6 +9,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBCardBody, MDBCard, MDBCardTitle, MDBCa
 import { Alert } from 'react-bootstrap';
 
 const DetailOrder = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const [orderDetail, setOrderDetail] = useState(null);
   const { user } = useSelector((state) => state.auth);
   const [totalBayar, setTotalBayar] = useState(0);

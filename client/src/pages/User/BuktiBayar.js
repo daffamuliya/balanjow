@@ -9,6 +9,7 @@ import { getMe } from '../../features/authSlice';
 import { MDBContainer, MDBRow, MDBCol, MDBCardBody, MDBCard, MDBCardText, MDBCardImage } from 'mdb-react-ui-kit';
 
 export const BuktiBayar = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const { user } = useSelector((state) => state.auth);
   const id_pembeli = user ? user.id : null;
   const alamat_pembeli = user ? user.alamat : null;
@@ -23,7 +24,7 @@ export const BuktiBayar = () => {
 
   const fetchOrderDetail = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/order/getMyOrder');
+      const response = await axios.get(`http://${url}/marketplace/order/getMyOrder`);
       console.log(response);
       if (response.data.data) {
         const orderDetails = response.data.data;
@@ -82,7 +83,7 @@ export const BuktiBayar = () => {
     formData.append('bukti_transfer', bukti_transfer);
 
     try {
-      const response = await axios.post('http://${url}/marketplace/transfer', formData, {
+      const response = await axios.post(`http://${url}/marketplace/transfer`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

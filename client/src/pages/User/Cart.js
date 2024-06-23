@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMe } from '../../features/authSlice';
 
 const Cart = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();

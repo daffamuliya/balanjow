@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const DetailBlog = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
   useEffect(() => {

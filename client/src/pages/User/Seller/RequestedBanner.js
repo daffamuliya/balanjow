@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { getMe } from '../../../features/authSlice';
 
 const RequestedBanner = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const RequestedBanner = () => {
 
   const getBanner = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/banner/requestedBanner');
+      const response = await axios.get(`http://${url}/marketplace/banner/requestedBanner`);
       setBanner(response.data.items);
     } catch (error) {
       console.error('Error fetching banner:', error);

@@ -11,9 +11,6 @@ function generateAccessToken(username) {
   return jwt.sign(username, process.env.TOKEN, { expiresIn: '1d' });
 }
 
-controller.tampilregister = async function (req, res) {
-  res.render('register');
-};
 
 controller.register = async function (req, res) {
   const { name, username, password, confPassword, email, no_telp } = req.body;
@@ -53,12 +50,6 @@ controller.register = async function (req, res) {
     console.log(error);
     res.status(500).json({ msg: 'Server Error' });
   }
-};
-
-controller.tampillogin = async function (req, res) {
-  const token = req.cookies.token;
-  if (token) return res.redirect('/');
-  res.render('login');
 };
 
 controller.login = async function (req, res) {

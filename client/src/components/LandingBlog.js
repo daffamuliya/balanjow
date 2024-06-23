@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const LandingBlog = () => {
   const [blog, setBlog] = useState([]);
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     getBlogs();

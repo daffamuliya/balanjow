@@ -13,7 +13,7 @@ function Register() {
   const [confPassword, setConfPassword] = useState('');
   const [msg, setMsg] = useState('');
   const navigate = useNavigate();
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   const Register = async (e) => {
     e.preventDefault();

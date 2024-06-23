@@ -14,7 +14,7 @@ const TambahBanner = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     dispatch(getMe());

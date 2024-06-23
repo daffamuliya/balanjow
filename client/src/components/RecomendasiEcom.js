@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const RekomendasiEcom = () => {
   const [marketplace, setMarketplace] = useState([]);
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     getMarketplace();

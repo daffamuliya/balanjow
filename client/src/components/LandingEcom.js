@@ -5,7 +5,7 @@ import axios from 'axios';
 const LandingEcom = () => {
   const [marketplace, setMarketplace] = useState([]);
   const [search, setSearch] = useState('');
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   const filteredMarketplace = marketplace.filter((item) => item.nama.toLowerCase().includes(search.toLowerCase()) || item.kategori_produk.nama.toLowerCase().includes(search.toLowerCase()));
 

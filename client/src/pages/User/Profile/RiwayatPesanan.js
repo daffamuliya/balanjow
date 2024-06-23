@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { getMe } from '../../../features/authSlice';
 
 const RiwayatPesanan = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -34,7 +35,7 @@ const RiwayatPesanan = () => {
 
   const getTransaksi = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/pesan/transaksi');
+      const response = await axios.get(`http://${url}/marketplace/pesan/transaksi`);
       const formattedTransaksi = response.data.data.map((item) => {
         const tanggal = new Date(item.tanggal_pesan);
         const options = {

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMe } from '../../features/authSlice';
 
 const DetailProduk = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();

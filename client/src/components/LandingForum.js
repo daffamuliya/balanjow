@@ -30,7 +30,7 @@ const LandingForum = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const user_id = user ? user.id : null;
-  const url = process.env.url;
+  const url = process.env.REACT_APP_BASE_URL;
 
   const [konten, setKonten] = useState('');
   const [komentar, setKomentar] = useState('');

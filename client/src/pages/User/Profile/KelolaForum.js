@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { getMe } from '../../../features/authSlice';
 
 export const KelolaForumUser = () => {
+  const url = process.env.REACT_APP_BASE_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
