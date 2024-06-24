@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMe } from '../../features/authSlice';
 
 const DetailProduk = () => {
-  const url = process.env.REACT_APP_BASE_URL;
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const DetailProduk = () => {
   useEffect(() => {
     const fetchProduk = async () => {
       try {
-        const response = await axios.get(`http://${url}/marketplace/${id}/produk`);
+        const response = await axios.get(`http://localhost:3000/marketplace/${id}/produk`);
         if (response.data.items) {
           const fetchedProduk = response.data.items;
           localStorage.setItem('savedProduk', JSON.stringify(fetchedProduk));
@@ -53,11 +52,9 @@ const DetailProduk = () => {
     fetchProduk();
 
     return () => {
-      if (produk) {
-        localStorage.removeItem('savedProduk');
-      }
+      localStorage.removeItem('savedProduk');
     };
-  }, [id, produk]);
+  }, [id]);
 
   const addToCart = async () => {
     if (!user) {
@@ -81,7 +78,7 @@ const DetailProduk = () => {
     };
 
     try {
-      const response = await axios.post(`http://${url}/marketplace/cart/addCart`, cartItem);
+      const response = await axios.post(`http://localhost:3000/marketplace/cart/addCart`, cartItem);
 
       if (response.status === 200) {
         swal({
