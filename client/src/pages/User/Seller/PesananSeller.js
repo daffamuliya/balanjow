@@ -33,7 +33,7 @@ const PesananSeller = () => {
 
   const getTransaksi = async () => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/order/transaksi`);
+      const response = await axios.get(`${url}/marketplace/order/transaksi`);
       setTransaksi(response.data.data);
     } catch (error) {
       console.error('Error fetching blogs:', error);
@@ -46,7 +46,7 @@ const PesananSeller = () => {
 
   const loadTransaksiDetail = async (id) => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/transaksi/${id}`);
+      const response = await axios.get(`${url}/marketplace/transaksi/${id}`);
       const TransaksiDetailData = Array.isArray(response.data.data) ? response.data.data : [response.data.data];
       setTransaksiDetail(TransaksiDetailData);
       setScrollableModal(true);
@@ -61,7 +61,7 @@ const PesananSeller = () => {
 
   const handleSaveStatus = async (id) => {
     try {
-      await axios.put(`http://${url}/marketplace/transaksi/${id}`, {
+      await axios.put(`${url}/marketplace/transaksi/${id}`, {
         status: selectedStatus,
       });
       setScrollableModal(false);

@@ -33,6 +33,7 @@ const TambahBanner = () => {
   const [deskripsi, setDeskripsi] = useState('');
   const [gambar, setGambar] = useState(null);
   const [bukti_transfer, setBuktiTransfer] = useState(null);
+  const url = process.env.REACT_APP_BASE_URL;
 
   const loadImage = (e) => {
     if (e.target.name === 'gambar') {
@@ -63,7 +64,7 @@ const TambahBanner = () => {
     formData.append('status', status);
 
     try {
-      const response = await axios.post('http://${url}/marketplace/banner/addBanner', formData, {
+      const response = await axios.post(`${url}/marketplace/banner/addBanner`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

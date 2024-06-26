@@ -27,7 +27,7 @@ const DetailOrder = () => {
 
   const fetchOrderDetail = async () => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/order/getMyOrder`);
+      const response = await axios.get(`${url}/marketplace/order/getMyOrder`);
       console.log(response);
       if (response.data.data) {
         setOrderDetail(response.data.data);
@@ -56,7 +56,7 @@ const DetailOrder = () => {
         dangerMode: true,
       }).then(async (willDelete) => {
         if (willDelete) {
-          await axios.delete(`http://${url}/marketplace/deleteOrderDetail/${id}`);
+          await axios.delete(`${url}/marketplace/deleteOrderDetail/${id}`);
           fetchOrderDetail();
           swal('Produk berhasil dihapus!', {
             icon: 'success',

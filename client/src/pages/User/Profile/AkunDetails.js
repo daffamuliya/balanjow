@@ -15,6 +15,7 @@ const AkunDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
+  const url = process.env.REACT_APP_BASE_URL;
 
   const [showModal, setShowModal] = useState(false);
   const [oldPassword, setOldPassword] = useState('');
@@ -52,7 +53,7 @@ const AkunDetails = () => {
         });
       }
 
-      const response = await axios.put('http://${url}/auth/updatePassword', {
+      const response = await axios.put(`${url}/auth/updatePassword`, {
         oldPassword: oldPassword,
         newPassword: newPassword,
         confNewPassword: confNewPassword,
@@ -83,7 +84,7 @@ const AkunDetails = () => {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('http://${url}/auth/updateProfile', {
+      const response = await axios.put(`${url}/auth/updateProfile`, {
         no_telp: noTelp,
         alamat: alamat,
       });

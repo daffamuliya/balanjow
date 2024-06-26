@@ -24,7 +24,7 @@ export const BuktiBayar = () => {
 
   const fetchOrderDetail = async () => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/order/getMyOrder`);
+      const response = await axios.get(`${url}/marketplace/order/getMyOrder`);
       console.log(response);
       if (response.data.data) {
         const orderDetails = response.data.data;
@@ -83,7 +83,7 @@ export const BuktiBayar = () => {
     formData.append('bukti_transfer', bukti_transfer);
 
     try {
-      const response = await axios.post(`http://${url}/marketplace/transfer`, formData, {
+      const response = await axios.post(`${url}/marketplace/transfer`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -112,7 +112,7 @@ export const BuktiBayar = () => {
 
   const deleteAllOrderItems = async () => {
     try {
-      await axios.delete(`http://${url}/marketplace/deleteAllOrderItems/${userId}`);
+      await axios.delete(`${url}/marketplace/deleteAllOrderItems/${userId}`);
     } catch (error) {
       console.error('Terjadi kesalahan saat menghapus item di keranjang:', error);
     }

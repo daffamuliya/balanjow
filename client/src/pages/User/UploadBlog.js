@@ -21,6 +21,7 @@ const UploadBlog = () => {
   const [file, setFile] = useState('');
   const [summary, setSummary] = useState('');
   const [konten, setKonten] = useState('');
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     dispatch(getMe());
@@ -50,7 +51,7 @@ const UploadBlog = () => {
     formData.append('summary', summary);
     formData.append('konten', konten);
     try {
-      await axios.post('http://${url}/blog/addBlog', formData, {
+      await axios.post(`${url}/blog/addBlog`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

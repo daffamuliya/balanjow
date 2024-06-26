@@ -69,7 +69,7 @@ const LandingForum = () => {
   const saveForum = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://${url}/forum/addForum`, {
+      await axios.post(`${url}/forum/addForum`, {
         user_id,
         user: user.name,
         konten,
@@ -104,13 +104,14 @@ const LandingForum = () => {
   }, []);
 
   const getForum = async () => {
-    const response = await axios.get('http://${url}/forum');
+    console.log(url);
+    const response = await axios.get(`${url}/forum`);
     setForum(response.data.items);
   };
 
   const get3Forum = async () => {
     try {
-      const response = await axios.get('http://${url}/forum');
+      const response = await axios.get(`${url}/forum`);
       const latestThreeItems = response.data.items.slice(0, 3);
       set3Forum(latestThreeItems);
     } catch (error) {
@@ -120,12 +121,12 @@ const LandingForum = () => {
 
   const loadForumDetail = async (id) => {
     try {
-      const response2 = await axios.get(`http://${url}/forum/${id}`);
+      const response2 = await axios.get(`${url}/forum/${id}`);
       const statusDetailData = Array.isArray(response2.data.items) ? response2.data.items : [response2.data.items];
       setStatusDetail(statusDetailData);
 
       await handleButtonClick(id);
-      const response = await axios.get(`http://${url}/forum/comment/${id}`);
+      const response = await axios.get(`${url}/forum/comment/${id}`);
       const forumDetailData = Array.isArray(response.data.items) ? response.data.items : [response.data.items];
       setForumDetail(forumDetailData);
 

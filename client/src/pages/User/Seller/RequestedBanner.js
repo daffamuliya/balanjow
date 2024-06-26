@@ -33,7 +33,7 @@ const RequestedBanner = () => {
 
   const getBanner = async () => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/banner/requestedBanner`);
+      const response = await axios.get(`${url}/marketplace/banner/requestedBanner`);
       setBanner(response.data.items);
     } catch (error) {
       console.error('Error fetching banner:', error);
@@ -42,7 +42,7 @@ const RequestedBanner = () => {
 
   const deleteRequestedBanner = async (id) => {
     try {
-      const response = await axios.delete(`http://${url}/marketplace/banner/deleteRequestedBanner/${id}`);
+      const response = await axios.delete(`${url}/marketplace/banner/deleteRequestedBanner/${id}`);
       console.log(response.data);
       getBanner();
     } catch (error) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EcomNavbar from '../../components/EcomNavbar';
 import Footer from '../../components/Footer';
-import { MDBContainer, MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import LandingEcom from '../../components/LandingEcom';
 export default class Landing extends Component {
   render() {

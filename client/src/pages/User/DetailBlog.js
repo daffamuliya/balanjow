@@ -18,7 +18,7 @@ const DetailBlog = () => {
           fetchedBlog = JSON.parse(savedBlog);
           console.log(fetchedBlog);
         } else {
-          const response = await axios.get(`http://${url}/blog/baca/${slug}`);
+          const response = await axios.get(`${url}/blog/baca/${slug}`);
           fetchedBlog = response.data.items;
           const waktuDariDatabase = fetchedBlog.created_at;
           const waktu = new Date(waktuDariDatabase);

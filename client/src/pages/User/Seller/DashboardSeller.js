@@ -14,6 +14,7 @@ const DashboardSeller = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
+  const url = process.env.REACT_APP_BASE_URL;
 
   const [omzet, setOmzet] = useState(0);
   const [feePlatform, setFeePlatform] = useState(0);
@@ -28,7 +29,7 @@ const DashboardSeller = () => {
 
   const getOmzet = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/omzet/transaksi');
+      const response = await axios.get(`${url}/marketplace/omzet/transaksi`);
       const omzetData = response.data.omzet;
       setOmzet(omzetData);
     } catch (error) {
@@ -38,7 +39,7 @@ const DashboardSeller = () => {
 
   const getFeePlatform = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/fee/transaksi');
+      const response = await axios.get(`${url}/marketplace/fee/transaksi`);
       const fee = response.data.fee;
       setFeePlatform(fee);
     } catch (error) {
@@ -48,7 +49,7 @@ const DashboardSeller = () => {
 
   const getTotalOrder = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/order/total');
+      const response = await axios.get(`${url}/marketplace/order/total`);
       setTotalOrder(response.data.totalOrder);
     } catch (error) {
       console.error('Error:', error);
@@ -68,7 +69,7 @@ const DashboardSeller = () => {
 
   const getTransaksi = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/order/transaksi');
+      const response = await axios.get(`${url}/marketplace/order/transaksi`);
       setTransaksi(response.data.data);
     } catch (error) {
       console.error('Error fetching blogs:', error);

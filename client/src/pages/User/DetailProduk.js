@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NormalNavbar from '../../components/NormalNavbar';
 import Footer from '../../components/Footer';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage } from 'mdb-react-ui-kit';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -15,6 +15,7 @@ const DetailProduk = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [keterangan, setKeterangan] = useState('');
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     dispatch(getMe());
@@ -36,7 +37,7 @@ const DetailProduk = () => {
   useEffect(() => {
     const fetchProduk = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/marketplace/${id}/produk`);
+        const response = await axios.get(`${url}/marketplace/${id}/produk`);
         if (response.data.items) {
           const fetchedProduk = response.data.items;
           localStorage.setItem('savedProduk', JSON.stringify(fetchedProduk));
@@ -78,7 +79,7 @@ const DetailProduk = () => {
     };
 
     try {
-      const response = await axios.post(`http://localhost:3000/marketplace/cart/addCart`, cartItem);
+      const response = await axios.post(`${url}/marketplace/cart/addCart`, cartItem);
 
       if (response.status === 200) {
         swal({

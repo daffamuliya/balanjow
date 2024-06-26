@@ -13,7 +13,7 @@ const url = process.env.REACT_APP_BASE_URL;
 
 export const LoginUser = createAsyncThunk('user/LoginUser', async (user, thunkAPI) => {
   try {
-    const response = await axios.post(`//${url}/auth/login`, {
+    const response = await axios.post(`${url}/auth/login`, {
       email: user.email,
       username: user.username,
       password: user.password,

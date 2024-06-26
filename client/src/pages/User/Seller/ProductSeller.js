@@ -43,7 +43,7 @@ const ProductSeller = () => {
 
   const getMarketplace = async () => {
     try {
-      const response = await axios.get('http://${url}/marketplace/produksaya/dashboard');
+      const response = await axios.get(`${url}/marketplace/produksaya/dashboard`);
       setMarketplace(response.data.data);
     } catch (error) {
       console.error('Error fetching marketplace data:', error);
@@ -51,7 +51,7 @@ const ProductSeller = () => {
   };
   const loadProdukDetail = async (id) => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/${id}/produk`);
+      const response = await axios.get(`${url}/marketplace/${id}/produk`);
 
       if (!response.data || !response.data.items || response.data.items.length === 0) {
         throw new Error('Data produk tidak tersedia');
@@ -84,7 +84,7 @@ const ProductSeller = () => {
         dangerMode: true,
       }).then(async (willDelete) => {
         if (willDelete) {
-          await axios.delete(`http://${url}/marketplace/deleteProduk/${id}`);
+          await axios.delete(`${url}/marketplace/deleteProduk/${id}`);
           getMarketplace();
           swal('Produk berhasil dihapus!', {
             icon: 'success',
@@ -108,7 +108,7 @@ const ProductSeller = () => {
     formData.append('file', file);
 
     try {
-      await axios.put(`http://${url}/marketplace/updateProduk/${produkDetail.id}`, formData, {
+      await axios.put(`${url}/marketplace/updateProduk/${produkDetail.id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

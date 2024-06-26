@@ -35,7 +35,7 @@ export const KelolaForumUser = () => {
 
   const getForum = async () => {
     try {
-      const response = await axios.get('http://${url}/forum/dashboard');
+      const response = await axios.get(`${url}/forum/dashboard`);
       const formattedForum = response.data.map((item) => {
         const waktu = new Date(item.created_at);
         const options = {
@@ -63,7 +63,7 @@ export const KelolaForumUser = () => {
         dangerMode: true,
       }).then(async (willDelete) => {
         if (willDelete) {
-          await axios.delete(`http://${url}/forum/deleteForum/${id}`);
+          await axios.delete(`${url}/forum/deleteForum/${id}`);
           getForum();
           swal('Forum berhasil dihapus!', {
             icon: 'success',
@@ -79,7 +79,7 @@ export const KelolaForumUser = () => {
 
   const loadForumDetail = async (id) => {
     try {
-      const response = await axios.get(`http://${url}/forum/comment/${id}`);
+      const response = await axios.get(`${url}/forum/comment/${id}`);
       const forumDetailData = Array.isArray(response.data.items) ? response.data.items : [response.data.items];
       setForumDetail(forumDetailData);
       console.log('forumDetail:', forumDetailData);

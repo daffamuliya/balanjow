@@ -15,7 +15,7 @@ const KategoriEcom = () => {
   useEffect(() => {
     const getMarketplace = async () => {
       try {
-        const response = await axios.get(`http://${url}/marketplace/${id}`);
+        const response = await axios.get(`${url}/marketplace/${id}`);
         setMarketplace(response.data.items);
       } catch (err) {
         setError(err.message);

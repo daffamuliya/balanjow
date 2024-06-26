@@ -26,7 +26,7 @@ const Cart = () => {
 
   async function fetchCartData() {
     try {
-      const response = await axios.get(`http://${url}/marketplace/cart/myCart`);
+      const response = await axios.get(`${url}/marketplace/cart/myCart`);
       if (response.data.data) {
         setCartItems(response.data.data);
         console.log('Fetched cart items:', response.data.data);
@@ -48,7 +48,7 @@ const Cart = () => {
         dangerMode: true,
       }).then(async (willDelete) => {
         if (willDelete) {
-          await axios.delete(`http://${url}/marketplace/deleteCart/${id}`);
+          await axios.delete(`${url}/marketplace/deleteCart/${id}`);
           fetchCartData();
           swal('Produk berhasil dihapus!', {
             icon: 'success',
@@ -64,7 +64,7 @@ const Cart = () => {
 
   const deleteAllCartItems = async () => {
     try {
-      await axios.delete(`http://${url}/marketplace/deleteAllCartItems/${userId}`);
+      await axios.delete(`${url}/marketplace/deleteAllCartItems/${userId}`);
     } catch (error) {
       console.error('Terjadi kesalahan saat menghapus item di keranjang:', error);
     }
@@ -85,7 +85,7 @@ const Cart = () => {
       console.log('Order Data:', orderData);
 
       try {
-        const response = await axios.post(`http://${url}/marketplace/addOrderDetail`, orderData);
+        const response = await axios.post(`${url}/marketplace/addOrderDetail`, orderData);
         if (response.status === 200) {
           swal('Checkout', 'Lanjutkan ke pembayaran', 'success').then(() => {
             navigate('/detail-order');

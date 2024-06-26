@@ -35,7 +35,7 @@ const RiwayatPesanan = () => {
 
   const getTransaksi = async () => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/pesan/transaksi`);
+      const response = await axios.get(`${url}/marketplace/pesan/transaksi`);
       const formattedTransaksi = response.data.data.map((item) => {
         const tanggal = new Date(item.tanggal_pesan);
         const options = {
@@ -55,7 +55,7 @@ const RiwayatPesanan = () => {
 
   const loadTransaksiDetail = async (id) => {
     try {
-      const response = await axios.get(`http://${url}/marketplace/detailtransaksi/${id}`);
+      const response = await axios.get(`${url}/marketplace/detailtransaksi/${id}`);
       const transaksiDetailData = Array.isArray(response.data.data) ? response.data.data : [response.data.data];
       setTransaksiDetail(transaksiDetailData);
       setScrollableModal(true);

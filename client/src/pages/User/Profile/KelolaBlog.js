@@ -36,7 +36,7 @@ const KelolaBlog = () => {
 
   const getBlogs = async () => {
     try {
-      const response = await axios.get(`http://${url}/blog/dashboard`);
+      const response = await axios.get(`${url}/blog/dashboard`);
       const formattedBlogs = response.data.items.map((item) => {
         const waktu = new Date(item.created_at);
         const options = {
@@ -67,7 +67,7 @@ const KelolaBlog = () => {
 
   const loadBlogDetail = async (slug) => {
     try {
-      const response = await axios.get(`http://${url}/blog/baca/${slug}`);
+      const response = await axios.get(`${url}/blog/baca/${slug}`);
       const BlogDetailData = Array.isArray(response.data.items) ? response.data.items : [response.data.items];
       setBlogDetail(BlogDetailData[0]);
       setJudul(BlogDetailData[0].judul);
@@ -92,7 +92,7 @@ const KelolaBlog = () => {
         dangerMode: true,
       }).then(async (willDelete) => {
         if (willDelete) {
-          await axios.delete(`http://${url}/blog/deleteBlog/${id}`);
+          await axios.delete(`${url}/blog/deleteBlog/${id}`);
           getBlogs();
           swal('Blog berhasil dihapus!', {
             icon: 'success',
@@ -119,7 +119,7 @@ const KelolaBlog = () => {
     formData.append('konten', konten);
 
     try {
-      await axios.put(`http://${url}/blog/updateBlog/${BlogDetail.id}`, formData, {
+      await axios.put(`${url}/blog/updateBlog/${BlogDetail.id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
